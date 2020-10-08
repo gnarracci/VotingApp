@@ -1,9 +1,8 @@
 {
   "name": "server",
   "version": "1.0.0",
-  "description": "Api-Server NodeJS & MongoDB to VotingApp",
+  "description": "Api Server for VotingApp",
   "main": "index.js",
-  "type": "module",
   "scripts": {
     "build": "babel src --out-dir build",
     "dev": "nodemon src/index.js --exec babel-node",

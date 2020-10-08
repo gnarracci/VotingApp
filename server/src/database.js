@@ -1,7 +1,9 @@
-import mongoose from "mongoose";
+const mongoose = require("mongoose");
+
+const URI = "mongodb://localhost/votingApp_db";
 
 mongoose
-  .connect("mongodb://localhost/votingApp_db", {
+  .connect(URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useFindAndModify: true,
@@ -9,3 +11,5 @@ mongoose
   })
   .then((db) => console.log("DB is Connected!"))
   .catch((error) => console.log(error));
+
+module.exports = mongoose;
