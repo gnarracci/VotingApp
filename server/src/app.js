@@ -11,5 +11,8 @@ app.use(morgan("dev"));
 app.use(express.json());
 
 // Routes
+app.get("/", (req, res) => {
+  res.send("API-SERVER IS WORKS!");
+});
 
 module.exports = app;
