@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const Role = require("./Role");
+const bcrypt = require("bcryptjs");
 
 const userSchema = new mongoose.Schema(
   {
@@ -20,6 +20,12 @@ const userSchema = new mongoose.Schema(
       {
         ref: "Role",
         type: mongoose.Schema.Types.ObjectId,
+      },
+    ],
+    polls: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Poll",
       },
     ],
   },
