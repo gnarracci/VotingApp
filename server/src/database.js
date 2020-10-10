@@ -1,11 +1,7 @@
 const mongoose = require("mongoose");
 
-const URI = "mongodb://localhost/vote_db";
-
-mongoose.set("debug", true);
-mongoose.Promise = global.Promise;
 mongoose
-  .connect(URI, {
+  .connect("mongodb://localhost/vote_db", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useFindAndModify: true,
@@ -13,5 +9,3 @@ mongoose
   })
   .then((db) => console.log("DB is Connected!"))
   .catch((error) => console.log(error));
-
-module.exports = mongoose;

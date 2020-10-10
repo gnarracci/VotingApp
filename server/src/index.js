@@ -1,7 +1,8 @@
 const app = require("./app");
-const { mongoose } = require("./database");
+require("./database");
 
-// Server
+// Starting the Server
+
 app.listen(app.get("port"), () => {
   console.log("Server is running on port", app.get("port"));
 });

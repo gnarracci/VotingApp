@@ -2,8 +2,7 @@
 
 var app = require("./app");
 
-var _require = require("./database"),
-    mongoose = _require.mongoose; // Server
+require("./database"); // Starting the Server
 
 
 app.listen(app.get("port"), function () {

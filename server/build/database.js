@@ -2,8 +2,7 @@
 
 var mongoose = require("mongoose");
 
-var URI = "mongodb://localhost/votingApp_db";
-mongoose.connect(URI, {
+mongoose.connect("mongodb://localhost/company_db", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useFindAndModify: true,
@@ -13,4 +12,3 @@ mongoose.connect(URI, {
 })["catch"](function (error) {
   return console.log(error);
 });
-module.exports = mongoose;
