@@ -1,5 +1,7 @@
 const app = require("./app");
 require("./database");
+const env = require("node-env-file"); // .env file
+env(__dirname + "/.env");
 
 // Starting the Server
 

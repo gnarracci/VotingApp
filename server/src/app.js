@@ -1,6 +1,5 @@
-require("dotenv").config();
-const morgan = require("morgan");
 const express = require("express");
+const morgan = require("morgan");
 const pkg = require("../package.json");
 
 const app = express();
