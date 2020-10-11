@@ -3,6 +3,10 @@ const bcrypt = require("bcryptjs");
 
 const userSchema = new mongoose.Schema(
   {
+    fullname: {
+      type: String,
+      required: true,
+    },
     username: {
       type: String,
       unique: true,
@@ -15,12 +19,7 @@ const userSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    roles: [
-      {
-        ref: "Role",
-        type: Schema.Types.ObjectId,
-      },
-    ],
+    roles: [{ type: mongoose.Schema.Types.ObjectId, ref: "Role" }],
     polls: [{ type: mongoose.Schema.Types.ObjectId, ref: "Poll" }],
   },
   {

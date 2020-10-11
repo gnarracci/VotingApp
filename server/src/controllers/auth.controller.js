@@ -5,9 +5,10 @@ const Role = require("../models/Role");
 
 // Signup User
 export const signup = async (req, res) => {
-  const { username, email, password, roles } = req.body;
+  const { fullname, username, email, password, roles } = req.body;
 
   const newUser = new User({
+    fullname,
     username,
     email,
     password: await User.encryptPassword(password),

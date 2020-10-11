@@ -1,10 +1,16 @@
 const express = require("express");
 const morgan = require("morgan");
 const pkg = require("../package.json");
+const { createRoles } = require("./libs/initialSetup");
 
 const app = express();
+createRoles();
+
+const env = require("node-env-file"); // .env file
+env(__dirname + "/.env");
 
 const pollsRoutes = require("./routes/polls.routes");
+const authRoutes = require("./routes/auth.routes");
 
 // Settings
 app.set("port", process.env.PORT || 4000);
@@ -26,5 +32,6 @@ app.get("/", (req, res) => {
 
 // Routes
 app.use("/api/polls", pollsRoutes);
+app.use("/api/auth", authRoutes);
 
 module.exports = app;
