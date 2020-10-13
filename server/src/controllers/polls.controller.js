@@ -1,6 +1,4 @@
-import { options } from "../app";
-import Role from "../models/Role";
-
+const User = require("../models/User");
 const Poll = require("../models/Poll");
 
 // Create a Poll
@@ -8,6 +6,9 @@ export const createPoll = async (req, res) => {
   try {
     console.log(req.body);
     const { question, options } = req.body;
+    const userInfo = await User.findById(req.userId);
+    const user = userInfo.username;
+    console.log(user);
     const newPoll = new Poll({
       question,
       options: options.map((option) => ({ option, votes: 0 })),
@@ -15,7 +16,7 @@ export const createPoll = async (req, res) => {
     const pollSaved = await newPoll.save();
     res.status(201).json(pollSaved);
   } catch (error) {
-    return res.status(404).json({ message: "Something went wrong!" });
+    return res.status(404).json(error);
   }
 };
 
@@ -30,7 +31,14 @@ export const getPolls = async (req, res) => {
 };
 
 // Get a Poll
-export const getPoll = (req, res) => {};
+export const getPoll = async (req, res) => {
+  try {
+    const poll = await Poll.findById(req.params.pollId);
+    res.status(200).json(poll);
+  } catch (error) {
+    return res.status(404).json({ message: "Something went wrong" });
+  }
+};
 
 // Update a Poll
 export const updatePoll = (req, res) => {};
