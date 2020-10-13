@@ -1,7 +1,8 @@
 const mongoose = require("mongoose");
+const URI = process.env.URI;
 
 mongoose
-  .connect("mongodb://localhost/vote_db", {
+  .connect(URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useFindAndModify: true,
