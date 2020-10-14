@@ -44,8 +44,6 @@ export const getPollById = async (req, res) => {
 // Update a Poll
 export const updatePollById = async (req, res) => {
   try {
-    console.log(req.params.pollId);
-    console.log(req.body);
     const updatedPoll = await Poll.findByIdAndUpdate(
       req.params.pollId,
       req.body,
