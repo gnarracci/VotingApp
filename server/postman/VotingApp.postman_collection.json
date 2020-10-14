@@ -1,0 +1,214 @@
+{
+	"info": {
+		"_postman_id": "f01a25fa-bd71-457e-946a-2097bd2b884f",
+		"name": "VotingApp",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "/api/auth/signup",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"fullname\": \"María Sánchez\",\n    \"username\": \"msanchez\",\n    \"password\": \"password\",\n    \"email\": \"maria.papita.99@gmail.com\"\n    \n}"
+						},
+						"url": {
+							"raw": "localhost:4000/api/auth/signup",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"auth",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/auth/signin",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"gnarracci@gmail.com\",\n    \"password\": \"password\"\n}"
+						},
+						"url": {
+							"raw": "localhost:4000/api/auth/signin",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"auth",
+								"signin"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Polls",
+			"item": [
+				{
+					"name": "/api/polls",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmODJjMTgyZDhiZWU3MTg1ZTNmOWE5OSIsImlhdCI6MTYwMjY5NjU5MiwiZXhwIjoxNjAyNzM5NzkyfQ.GcY5ttmnZKxsCfXMEz1VRaz6UdMlq_XrDo5smtx0kmg",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:4000/api/polls/5f858de9f56f561abe533d26",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"polls",
+								"5f858de9f56f561abe533d26"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/polls",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmODJjMTgyZDhiZWU3MTg1ZTNmOWE5OSIsImlhdCI6MTYwMjY5NjU5MiwiZXhwIjoxNjAyNzM5NzkyfQ.GcY5ttmnZKxsCfXMEz1VRaz6UdMlq_XrDo5smtx0kmg",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"question\": \"Question: Are you from United States?\",\n    \"options\": [\"Yes\",\"No\"]\n}"
+						},
+						"url": {
+							"raw": "localhost:4000/api/polls",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"polls"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/polls",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/polls",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:4000/api/polls/5f8744e824a5a11378838137",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"polls",
+								"5f8744e824a5a11378838137"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/polls",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmODJjMTgyZDhiZWU3MTg1ZTNmOWE5OSIsImlhdCI6MTYwMjcwMDQ2MiwiZXhwIjoxNjAyNzQzNjYyfQ._3IjjlPdxNezZbk6UCbcR2YZDhQJ_sQTblxN_3o76DI",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"question\": \"Question: Are you from Canada?\"\n}"
+						},
+						"url": {
+							"raw": "localhost:4000/api/polls/5f8744e824a5a11378838137",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"polls",
+								"5f8744e824a5a11378838137"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
