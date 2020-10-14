@@ -7,15 +7,15 @@ const authJwt = require("../middlewares/authJwt");
 router.get("/", pollCtrl.getPolls);
 
 // Get a Poll by Id
-router.get("/:pollId", pollCtrl.getPoll);
+router.get("/:pollId", pollCtrl.getPollById);
 
 // Create a Poll
 router.post("/", authJwt.verifyToken, pollCtrl.createPoll);
 
 // Update a Poll by Id
-router.put("/:pollId", pollCtrl.updatePoll);
+router.put("/:pollId", authJwt.verifyToken, pollCtrl.updatePollById);
 
 // Delete a Poll by Id
-router.delete("/:pollId", pollCtrl.deletePoll);
+router.delete("/:pollId", authJwt.verifyToken, pollCtrl.deletePollById);
 
 module.exports = router;

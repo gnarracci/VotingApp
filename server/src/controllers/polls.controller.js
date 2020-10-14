@@ -31,17 +31,41 @@ export const getPolls = async (req, res) => {
 };
 
 // Get a Poll
-export const getPoll = async (req, res) => {
+export const getPollById = async (req, res) => {
   try {
-    const poll = await Poll.findById(req.params.pollId);
+    const { pollId } = req.params;
+    const poll = await Poll.findById(pollId);
     res.status(200).json(poll);
   } catch (error) {
-    return res.status(404).json({ message: "Something went wrong" });
+    return res.status(404).json({ message: "Something went wrong!" });
   }
 };
 
 // Update a Poll
-export const updatePoll = (req, res) => {};
+export const updatePollById = async (req, res) => {
+  try {
+    console.log(req.params.pollId);
+    console.log(req.body);
+    const updatedPoll = await Poll.findByIdAndUpdate(
+      req.params.pollId,
+      req.body,
+      {
+        new: true,
+      }
+    );
+    res.status(200).json(updatedPoll);
+  } catch (error) {
+    return res.status(400).json({ message: "Something went wrong" });
+  }
+};
 
 // Delete a Poll
-export const deletePoll = (req, res) => {};
+export const deletePollById = async (req, res) => {
+  try {
+    const { pollId } = req.params;
+    const deletePoll = await Poll.findByIdAndDelete(pollId);
+    res.status(200).json({ message: "Poll deleted!" });
+  } catch (error) {
+    return res.status(404).json({ message: "Something went wrong!" });
+  }
+};
