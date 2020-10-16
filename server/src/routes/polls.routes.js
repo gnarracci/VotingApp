@@ -4,10 +4,10 @@ const pollCtrl = require("../controllers/polls.controller");
 const authJwt = require("../middlewares/authJwt");
 
 // Get All Polls
-router.get("/", pollCtrl.getPolls);
+router.get("/", authJwt.verifyToken, pollCtrl.getPolls);
 
 // Get a Poll by Id
-router.get("/:pollId", pollCtrl.getPollById);
+router.get("/:pollId", authJwt.verifyToken, pollCtrl.getPollById);
 
 // Create a Poll
 router.post("/", authJwt.verifyToken, pollCtrl.createPoll);
