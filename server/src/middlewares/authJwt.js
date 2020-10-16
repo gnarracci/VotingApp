@@ -5,8 +5,8 @@ const Role = require("../models/Role");
 
 export const verifyToken = async (req, res, next) => {
   try {
-    // Token taken
-    const token = req.headers["x-access-token"];
+    // Token taken with Bearer
+    const token = req.headers.authorization.split(" ")[1];
 
     // Token Sent Verification
     if (!token) return res.status(403).json({ message: "No token provided!" });
