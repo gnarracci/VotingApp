@@ -1,5 +1,6 @@
 const express = require("express");
 const morgan = require("morgan");
+const cors = require("cors");
 const pkg = require("../package.json");
 const { createRoles } = require("./libs/initialSetup");
 
@@ -19,6 +20,7 @@ app.set("pkg", pkg);
 // Middlewares
 app.use(morgan("dev"));
 app.use(express.json());
+app.use(cors());
 
 // Info
 app.get("/", (req, res) => {

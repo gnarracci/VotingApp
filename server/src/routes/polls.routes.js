@@ -22,6 +22,6 @@ router.put("/:pollId", authJwt.verifyToken, pollCtrl.updatePollById);
 router.delete("/:pollId", authJwt.verifyToken, pollCtrl.deletePollById);
 
 //Vote for a Poll
-router.post("/: pollId", authJwt.verifyToken, pollCtrl.vote);
+router.post("/votation/:pollId", authJwt.verifyToken, pollCtrl.vote);
 
 module.exports = router;
