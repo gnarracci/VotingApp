@@ -3,6 +3,9 @@ const router = express.Router();
 const pollCtrl = require("../controllers/polls.controller");
 const authJwt = require("../middlewares/authJwt");
 
+//User Polls
+router.get("/user", authJwt.verifyToken, pollCtrl.usersPolls);
+
 // Get All Polls
 router.get("/", authJwt.verifyToken, pollCtrl.getPolls);
 
@@ -17,5 +20,8 @@ router.put("/:pollId", authJwt.verifyToken, pollCtrl.updatePollById);
 
 // Delete a Poll by Id
 router.delete("/:pollId", authJwt.verifyToken, pollCtrl.deletePollById);
+
+//Vote for a Poll
+router.post("/: pollId", authJwt.verifyToken, pollCtrl.vote);
 
 module.exports = router;
