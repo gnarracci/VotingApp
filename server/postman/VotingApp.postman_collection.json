@@ -21,7 +21,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"fullname\": \"María Sánchez\",\n    \"username\": \"msanchez\",\n    \"password\": \"password\",\n    \"email\": \"maria.papita.99@gmail.com\"\n    \n}"
+							"raw": "{\n    \"fullname\": \"Frydyz Ariza\",\n    \"username\": \"farizan\",\n    \"password\": \"password\",\n    \"email\": \"fredyz.ariza.13@gmail.com\",\n    \"roles\": [\"admin\", \"user\"]    \n}"
 						},
 						"url": {
 							"raw": "localhost:4000/api/auth/signup",
@@ -144,20 +144,47 @@
 					"name": "/api/polls",
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmODJjMTgyZDhiZWU3MTg1ZTNmOWE5OSIsImlhdCI6MTYwMzAwNjIxNywiZXhwIjoxNjAzMDQ5NDE3fQ.jHCsOsnNZUOCNgZtBYmOlRM9kMx5ttNwEaunir5R5i0",
+								"type": "text"
+							}
+						],
 						"url": {
-							"raw": ""
+							"raw": "localhost:4000/api/polls",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"polls"
+							]
 						}
 					},
 					"response": []
 				},
 				{
 					"name": "/api/polls",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmODJjMTgyZDhiZWU3MTg1ZTNmOWE5OSIsImlhdCI6MTYwMzA1Njk1NSwiZXhwIjoxNjAzMTAwMTU1fQ.sqx_aTlMOlUiaR1FYNsB_UWHDsxHVUbBzthGFrhm83o",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
-							"raw": "localhost:4000/api/polls/5f8744e824a5a11378838137",
+							"raw": "localhost:4000/api/polls/5f894e09cc413b201a328caf",
 							"host": [
 								"localhost"
 							],
@@ -165,6 +192,42 @@
 							"path": [
 								"api",
 								"polls",
+								"5f894e09cc413b201a328caf"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/polls/votation",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmODJjMTgyZDhiZWU3MTg1ZTNmOWE5OSIsImlhdCI6MTYwMzA4MDI1NSwiZXhwIjoxNjAzMTIzNDU1fQ.GrJ-1cOCEW4mRo8Z1Efdx6Kg7yayT3fn3_uaWazFBfg",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{   \n    \"question\": \"Are you from Canada?\",\n    \"options\": [\"Yes\", \"No\"],\n    \"answer\": \"Yes\"\n}"
+						},
+						"url": {
+							"raw": "localhost:4000/api/polls/votation/5f8744e824a5a11378838137",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"polls",
+								"votation",
 								"5f8744e824a5a11378838137"
 							]
 						}
@@ -192,7 +255,7 @@
 							"raw": "{\n    \"question\": \"Question: Are you from Canada?\"\n}"
 						},
 						"url": {
-							"raw": "localhost:4000/api/polls/5f8744e824a5a11378838137",
+							"raw": "localhost:4000/api/polls/5f8befee63ad3d3df3cffc3d",
 							"host": [
 								"localhost"
 							],
@@ -200,7 +263,7 @@
 							"path": [
 								"api",
 								"polls",
-								"5f8744e824a5a11378838137"
+								"5f8befee63ad3d3df3cffc3d"
 							]
 						}
 					},

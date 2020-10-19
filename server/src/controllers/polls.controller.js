@@ -89,11 +89,40 @@ export const vote = async (req, res, next) => {
     console.log(pollId, userId, answer);
     if (answer) {
       const poll = await Poll.findById(pollId);
-      if (!poll) return console.log("No poll found!");
+      if (!poll) return res.status(400).json({ message: "No poll found!" });
+
+      // Check vote's option
+      const vote = poll.options.map((option) => {
+        if (option.option === answer) {
+          return {
+            option: option.option,
+            _id: option._id,
+            votes: option.votes + 1,
+          };
+        } else {
+          return option;
+        }
+      });
+      console.log(vote);
+
+      // Check User if already voted
+      const obs =
+        poll.voted.filter((user) => user.toString() === userId).length <= 0;
+
+      console.log(obs);
+
+      if (poll.voted.filter((user) => user.toString() === userId).length <= 0) {
+        poll.voted.push(userId);
+        poll.options = voted;
+        await poll.save();
+        res.status(202).json(poll);
+      } else {
+        res.status(400).json({ message: "Already voted!" });
+      }
     } else {
-      throw new Error("No answer provided");
+      return res.status(400).json({ message: "No answer provided!" });
     }
-  } catch (err) {
+  } catch (error) {
     return res.status(400).json({ message: "Something went wrong!" });
   }
 };
