@@ -86,7 +86,6 @@ export const vote = async (req, res, next) => {
     const { pollId } = req.params;
     const userId = req.userId;
     const { answer } = req.body;
-    console.log(pollId, userId, answer);
     if (answer) {
       const poll = await Poll.findById(pollId);
       if (!poll) return res.status(400).json({ message: "No poll found!" });
@@ -103,17 +102,11 @@ export const vote = async (req, res, next) => {
           return option;
         }
       });
-      console.log(vote);
 
       // Check User if already voted
-      const obs =
-        poll.voted.filter((user) => user.toString() === userId).length <= 0;
-
-      console.log(obs);
-
       if (poll.voted.filter((user) => user.toString() === userId).length <= 0) {
         poll.voted.push(userId);
-        poll.options = voted;
+        poll.options = vote;
         await poll.save();
         res.status(202).json(poll);
       } else {
