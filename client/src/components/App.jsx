@@ -1,5 +1,16 @@
-import React from "react";
+import React, { Component } from "react";
+import api from "../service/api";
 
-const App = () => <div>App Works!</div>;
+export default class App extends Component {
+  async componentDidMount() {
+    const result = await api.call("post", "auth/signin", {
+      email: "gnarracci@gmail.com",
+      password: "password",
+    });
 
-export default App;
+    console.log(result);
+  }
+  render() {
+    return <div>App Works!</div>;
+  }
+}
