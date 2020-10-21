@@ -2,10 +2,11 @@
 
 var mongoose = require("mongoose");
 
-mongoose.connect("mongodb://localhost/company_db", {
+var URI = process.env.URI;
+mongoose.connect(URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
-  useFindAndModify: true,
+  useFindAndModify: false,
   useCreateIndex: true
 }).then(function (db) {
   return console.log("DB is Connected!");

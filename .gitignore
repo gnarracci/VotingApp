@@ -1,5 +1,5 @@
-# Created by https://www.toptal.com/developers/gitignore/api/node,visualstudiocode,react,linux
-# Edit at https://www.toptal.com/developers/gitignore?templates=node,visualstudiocode,react,linux
+# Created by https://www.toptal.com/developers/gitignore/api/node,linux
+# Edit at https://www.toptal.com/developers/gitignore?templates=node,linux
 
 ### Linux ###
 *~
@@ -89,8 +89,6 @@ typings/
 
 # dotenv environment variables file
 .env
-.env.dev
-.env.prod
 .env.test
 .env*.local
 
@@ -129,30 +127,4 @@ dist
 # Stores VSCode versions used for testing VSCode extensions
 .vscode-test
 
-### react ###
-.DS_*
-**/*.backup.*
-**/*.back.*
-
-node_modules
-
-*.sublime*
-
-psd
-thumb
-sketch
-
-### VisualStudioCode ###
-.vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
-*.code-workspace
-
-### VisualStudioCode Patch ###
-# Ignore all local history of files
-.history
-.ionide
-
-# End of https://www.toptal.com/developers/gitignore/api/node,visualstudiocode,react,linux
+# End of https://www.toptal.com/developers/gitignore/api/node,linux
