@@ -1,11 +1,12 @@
-import React from "react";
+import React, { Fragment } from "react";
 import { Provider } from "react-redux";
+import { BrowserRouter as Router } from "react-router-dom";
 import decode from "jwt-decode";
 
 import { store } from "../store";
 import { addError, setToken, setCurrentUserId } from "../store/actions";
-import Auth from "../components/Auth";
-import ErrorMessage from "../components/ErrorMessage";
+import NavBar from "./NavBar";
+import RouteViews from "./RouteViews";
 
 if (localStorage.jwtToken) {
   setToken(localStorage.jwtToken);
@@ -19,8 +20,12 @@ if (localStorage.jwtToken) {
 
 const App = () => (
   <Provider store={store}>
-    <Auth authType={"signin"} />
-    <ErrorMessage />
+    <Router>
+      <Fragment>
+        <NavBar />
+        <RouteViews />
+      </Fragment>
+    </Router>
   </Provider>
 );
 

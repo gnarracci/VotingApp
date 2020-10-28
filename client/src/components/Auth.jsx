@@ -32,16 +32,19 @@ class Auth extends Component {
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
-          <label for="email">Email</label>
+          <label htmlFor="email">Email</label>
           <input
             name="email"
+            autoComplete="off"
+            autoFocus="on"
             type="email"
             value={email}
             onChange={this.handleChange}
           />
-          <label for="password">Contraseña</label>
+          <label htmlFor="password">Contraseña</label>
           <input
             name="password"
+            autoComplete="off"
             type="password"
             value={password}
             onChange={this.handleChange}
